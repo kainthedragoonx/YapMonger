@@ -1,19 +1,23 @@
 const fileSystem = require('fs');
 const Discord = require('discord.js');
 const {prefix} = require('./config.json');
-const {token} = require('./secrets.json');
+const {token, fbToken} = require('./secrets.json');
 
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
+const fbConnector = FB.init({
+	appId      : fbToken,
+	status     : true,
+	xfbml      : true,
+	version    : 'v2.7' // or v2.6, v2.5, v2.4, v2.3
+  });
+
 const commandFiles = fileSystem.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-
-	// set a new item in the Collection
-	// with the key as the command name and the value as the exported module
 	client.commands.set(command.name, command);
 }
 
@@ -31,7 +35,7 @@ client.on('message', message => {
 	if (!client.commands.has(command)) return;
 
 	try {
-		client.commands.get(command).execute(message, args);
+		client.commands.get(command).execute(message, args, fbConnector);
 	} catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
