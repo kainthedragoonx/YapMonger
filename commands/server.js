@@ -1,7 +1,7 @@
 module.exports = {
 	name: 'server', 
 	description: 'Server!',
-	execute(message, args) {
+	execute(message, args,fbConnector) {
 		message.channel.send(`Server name: ${message.guild.name}\nTotal members: ${message.guild.memberCount}\nAlso Fuck Off`);
 	},
 };
