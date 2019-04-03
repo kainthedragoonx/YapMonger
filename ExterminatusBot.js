@@ -2,7 +2,7 @@ const fileSystem = require('fs');
 const Discord = require('discord.js');
 
 const {prefix} = require('./config.json');
-const {token, fbToken} = require('./secrets.json');
+const {token, fbToken,fbGroupId} = require('./secrets.json');
 
 
 const client = new Discord.Client();
