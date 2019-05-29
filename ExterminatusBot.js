@@ -1,8 +1,8 @@
 const fileSystem = require('fs');
 const Discord = require('discord.js');
 
-const {prefix} = require('./config.json');
-const {token, fbToken,fbGroupId} = require('./secrets.json');
+const { prefix } = require('./config.json');
+const { token, fbToken, fbGroupId } = require('./secrets.json');
 
 
 const client = new Discord.Client();
@@ -30,11 +30,12 @@ client.on('message', message => {
 
 	try {
 		client.commands.get(command).execute(message, args);
-	} catch (error) {
+	}
+	catch (error) {
 		console.error(error);
 		message.reply('there was an error trying to execute that command!');
 	}
-	
+
 });
 
 client.login(token);

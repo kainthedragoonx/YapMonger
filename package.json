@@ -1,0 +1,25 @@
+{
+  "name": "exterminatusbot",
+  "version": "1.0.0",
+  "description": "Exterminatus Bot",
+  "main": "ExterminatusBot.js",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "eslint": "^5.6.0",
+    "python": "^0.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kainthedragoonx/YapMonger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kainthedragoonx/YapMonger/issues"
+  },
+  "homepage": "https://github.com/kainthedragoonx/YapMonger#readme"
+}
